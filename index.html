@@ -1,1 +1,262 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <title>Happy Birthday Adly 🎂</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", Arial, sans-serif;
+    }
+
+    body {
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      overflow: hidden;
+      color: white;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 430px;
+      text-align: center;
+      position: relative;
+      z-index: 2;
+    }
+
+    .card {
+      background: rgba(255,255,255,0.15);
+      backdrop-filter: blur(15px);
+      -webkit-backdrop-filter: blur(15px);
+      border: 1px solid rgba(255,255,255,0.3);
+      border-radius: 30px;
+      padding: 40px 25px;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.25);
+      animation: muncul 1s ease;
+    }
+
+    .cake {
+      font-size: 75px;
+      animation: melayang 2s infinite ease-in-out;
+    }
+
+    h1 {
+      font-size: 38px;
+      margin-top: 15px;
+      text-shadow: 0 4px 15px rgba(0,0,0,0.25);
+    }
+
+    .age {
+      font-size: 70px;
+      font-weight: bold;
+      margin: 5px 0;
+      background: linear-gradient(45deg, #fff, #ffd6ff);
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .subtitle {
+      font-size: 18px;
+      margin-bottom: 20px;
+      opacity: 0.95;
+    }
+
+    .message {
+      line-height: 1.8;
+      font-size: 15px;
+      margin-top: 15px;
+    }
+
+    button {
+      margin-top: 25px;
+      border: none;
+      padding: 13px 25px;
+      border-radius: 50px;
+      background: white;
+      color: #764ba2;
+      font-size: 15px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    }
+
+    button:hover {
+      transform: scale(1.08);
+    }
+
+    #surprise {
+      display: none;
+      margin-top: 20px;
+      animation: muncul 1s ease;
+    }
+
+    .wish {
+      font-size: 14px;
+      line-height: 1.8;
+    }
+
+    .heart {
+      position: absolute;
+      font-size: 20px;
+      animation: jatuh linear infinite;
+      opacity: 0.8;
+    }
+
+    @keyframes muncul {
+      from {
+        opacity: 0;
+        transform: translateY(30px) scale(0.9);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+
+    @keyframes melayang {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-12px);
+      }
+    }
+
+    @keyframes jatuh {
+      from {
+        transform: translateY(-100px) rotate(0deg);
+      }
+      to {
+        transform: translateY(110vh) rotate(360deg);
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+
+    <div class="card">
+
+      <div class="cake">🎂</div>
+
+      <h1>Happy Birthday</h1>
+
+      <div class="age">19</div>
+
+      <div class="subtitle">
+        🎉 Untuk Adly 🎉
+      </div>
+
+      <p class="message">
+        Selamat ulang tahun yang ke-19, Adly! 🥳
+        <br><br>
+
+        Semoga di usia yang baru ini,
+        semua impian dan harapanmu perlahan
+        menjadi kenyataan.
+        <br><br>
+
+        Semoga selalu diberikan kesehatan,
+        kebahagiaan, kemudahan dalam setiap urusan,
+        rezeki yang lancar, dan orang-orang baik
+        yang selalu menemani perjalananmu.
+      </p>
+
+      <button onclick="kejutan()">
+        🎁 Buka Kejutan
+      </button>
+
+      <div id="surprise">
+
+        <p class="wish">
+          ✨ Selamat datang di usia 19 tahun! ✨
+          <br><br>
+
+          Jadilah versi terbaik dari dirimu.
+          Jangan takut bermimpi besar,
+          jangan mudah menyerah,
+          dan terus melangkah meskipun perlahan.
+          <br><br>
+
+          Semoga tahun ini menjadi salah satu
+          tahun terbaik dalam hidupmu. ❤️
+          <br><br>
+
+          <b>Happy 19th Birthday, Adly! 🎂🎉</b>
+        </p>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <script>
+
+    function kejutan() {
+
+      document.getElementById("surprise").style.display = "block";
+
+      // Confetti
+      for (let i = 0; i < 80; i++) {
+
+        let confetti = document.createElement("div");
+
+        confetti.innerHTML = ["🎉","🎊","✨","💜","💙","⭐"][
+          Math.floor(Math.random() * 6)
+        ];
+
+        confetti.style.position = "fixed";
+        confetti.style.left = Math.random() * 100 + "vw";
+        confetti.style.top = "-30px";
+        confetti.style.fontSize =
+          (Math.random() * 15 + 15) + "px";
+        confetti.style.zIndex = "999";
+        confetti.style.animation =
+          "jatuh " + (Math.random() * 3 + 2) + "s linear forwards";
+
+        document.body.appendChild(confetti);
+
+        setTimeout(() => {
+          confetti.remove();
+        }, 6000);
+      }
+
+    }
+
+    // Membuat hati yang jatuh
+    function buatHati() {
+
+      const heart = document.createElement("div");
+
+      heart.className = "heart";
+      heart.innerHTML = ["💜","💙","💖","✨"][Math.floor(Math.random()*4)];
+
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.animationDuration =
+        (Math.random() * 5 + 5) + "s";
+
+      document.body.appendChild(heart);
+
+      setTimeout(() => {
+        heart.remove();
+      }, 10000);
+    }
+
+    setInterval(buatHati, 700);
+
+  </script>
+
+</body>
+</html>
